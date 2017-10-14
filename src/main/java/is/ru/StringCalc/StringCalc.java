@@ -7,8 +7,8 @@ public class StringCalc {
 		if(input == "") {
 			return 0;
 		}
-		else if(input.contains(",")) {
-			String[] numbers = input.split(",");
+		else if(input.contains(",") || input.contains("\n")) {
+			String[] numbers = input.split(",|\\n");
 
 			int outcome = 0;
 			for(String s : numbers) {

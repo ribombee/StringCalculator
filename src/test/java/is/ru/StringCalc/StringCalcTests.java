@@ -37,4 +37,14 @@ public class StringCalcTests {
 	public void testMany() {
 		assertEquals(55, calculator.Add("1,2,3,4,5,6,7,8,9,10"));
 	}
+
+	@Test //Testing the \n delimeter
+	public void testnewline() {
+		assertEquals(3, calculator.Add("1\n2"));
+	}
+
+	@Test //Tesing \n with ,
+	public void testnewlinecomma() {
+		assertEquals(6, calculator.Add("1\n2,3"));
+	}
 }
