@@ -1,6 +1,7 @@
 package is.ru.StringCalc;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 public class StringCalcTests {
@@ -47,4 +48,29 @@ public class StringCalcTests {
 	public void testnewlinecomma() {
 		assertEquals(6, calculator.Add("1\n2,3"));
 	}
+
+	@Test //testing single negative number
+	public void testNegative1() {
+	    try {
+	        calculator.Add("-1");
+	        fail("No exception thrown, IllegalArgumentException expected");
+	    } 
+	    catch (Exception e) {
+	        assertEquals( "Negatives not allowed: -1", e.getMessage());
+	    }    
+	}
+
+	@Test //testing more than one negative number
+	public void testNegativemany() {
+	    try {
+	        calculator.Add("-1,-3,-5,2,-4");
+	        fail("No exception thrown, IllegalArgumentException expected");
+	    } 
+	    catch (Exception e) {
+	        assertEquals( "Negatives not allowed: -1,-3,-5,-4", e.getMessage());
+	    }    
+	}
+
+
+
 }

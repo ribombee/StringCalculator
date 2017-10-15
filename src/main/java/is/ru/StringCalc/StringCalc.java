@@ -2,23 +2,38 @@ package is.ru.StringCalc;
 
 public class StringCalc {
 
-	//string calculator.  Currently only functions correctly for empty string.  Returns 0.
 	public int Add(String input) {
+
+		String negativeNumbers = "";
+		String[] numbers = input.split(",|\\n");
+		int outcome = 0;
+
 		if(input == "") {
 			return 0;
 		}
-		else if(input.contains(",") || input.contains("\n")) {
-			String[] numbers = input.split(",|\\n");
 
-			int outcome = 0;
-			for(String s : numbers) {
+		for(String s : numbers) {
+
+			if(s.contains("-")) {
+				negativeNumbers = addNegative(negativeNumbers, s);
+			}
+			else {
 				outcome += Integer.parseInt(s);
 			}
-
-			return outcome;
+		}
+		if(!negativeNumbers.equals("")) {
+			throw new IllegalArgumentException("Negatives not allowed: " + negativeNumbers);
 		}
 		else {
-			return Integer.parseInt(input);
+			return outcome;
 		}
+	}
+
+	private String addNegative(String negatives, String s) {
+		if(negatives != "") {
+			negatives += ",";
+		}
+		negatives +=s;
+		return negatives;
 	}
 }
