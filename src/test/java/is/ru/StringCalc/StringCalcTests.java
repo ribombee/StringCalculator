@@ -82,4 +82,13 @@ public class StringCalcTests {
 		assertEquals(0, calculator.Add("10000"));
 	}
 
+	@Test //testing new delimeter
+	public void testDelimSemicolon() {
+		assertEquals(3, calculator.Add("\\;\n1;2"));
+	}
+
+	@Test //testing new daelimeter with commas and newline
+	public void testDelimAFew() {
+		assertEquals(10, calculator.Add("\\;\n1;2,3\n4"));
+	}
 }
