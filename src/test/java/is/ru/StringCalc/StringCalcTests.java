@@ -91,4 +91,14 @@ public class StringCalcTests {
 	public void testDelimAFew() {
 		assertEquals(10, calculator.Add("\\;\n1;2,3\n4"));
 	}
+
+	@Test //testing delimeter
+	public void testDelimasdf() {
+		assertEquals(14, calculator.Add("\\asdf\n1asdf6\n7"));
+	}
+
+	@Test //testing comma for special delimeter
+	public void testCommaDelim() {
+		assertEquals(3, calculator.Add("\\,\n1,2"));
+	}
 }

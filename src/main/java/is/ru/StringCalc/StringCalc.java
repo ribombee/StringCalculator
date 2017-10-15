@@ -7,8 +7,11 @@ public class StringCalc {
 		//find special delimeter if applicable, and if it is present,
 		//remove its declaration from the input.
 		String delimeter = findDelimeter(input);
-		if(!delimeter.equals(",")) {
+		if(!delimeter.equals("")) {
 			input = input.substring(input.indexOf("\n")+1);
+		}
+		else {
+			delimeter = ",";
 		}
 
 		String negativeNumbers = "";
@@ -66,9 +69,8 @@ public class StringCalc {
 			delimeter = input.substring(1, indexEnd);
 		}
 		else {
-			delimeter = ","; //if we don't find anything
+			delimeter = ""; //if we don't find anything
 		}
 		return delimeter;
 	}
-
 }
