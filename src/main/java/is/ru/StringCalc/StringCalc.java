@@ -18,7 +18,7 @@ public class StringCalc {
 				negativeNumbers = addNegative(negativeNumbers, s);
 			}
 			else {
-				outcome += Integer.parseInt(s);
+				outcome = addNum(outcome, s);
 			}
 		}
 		if(!negativeNumbers.equals("")) {
@@ -36,4 +36,13 @@ public class StringCalc {
 		negatives +=s;
 		return negatives;
 	}
+
+	private int addNum(int outcome, String s) {
+		int theNum = Integer.parseInt(s);
+		if(theNum <= 1000) {
+			outcome += Integer.parseInt(s);
+		}
+		return outcome;
+	}
+
 }

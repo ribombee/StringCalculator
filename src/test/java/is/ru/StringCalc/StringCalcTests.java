@@ -68,9 +68,18 @@ public class StringCalcTests {
 	    } 
 	    catch (Exception e) {
 	        assertEquals( "Negatives not allowed: -1,-3,-5,-4", e.getMessage());
-	    }    
+	    }   
 	}
 
+	@Test //Testing that numbers bigger than zero get ignored
+	public void testBigNumber() {
 
+		assertEquals(2, calculator.Add("1,1,1002"));
+	}
+
+	@Test //Testing just one big number
+	public void testBigNumberAlone() {
+		assertEquals(0, calculator.Add("10000"));
+	}
 
 }
